@@ -3,7 +3,7 @@
 Blake Larkin(blakeLarkin) <br/>
 Chloe Elliot(hmc-cs-celliott) <br/>
 Jackson Crewe(hmc-cs-jcrewe) <br/>
-Montana Roberts(?) <br/>
+Montana Roberts(MontanaRoberts) <br/>
 ### Summary
 
 ### Minimum Viable Product 
