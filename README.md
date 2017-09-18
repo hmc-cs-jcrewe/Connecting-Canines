@@ -3,7 +3,7 @@
 Blake Larkin(blakeLarkin) <br/>
 Chloe Elliot(hmc-cs-celliott) <br/>
 Jackson Crewe(hmc-cs-jcrewe) <br/>
-Montana Roberts(?) <br/>
+Montana Roberts(MontanaRoberts) <br/>
 ### Summary
 
 Canine Connection provides a way for dogs owners and appreciators alike to create and share information and interact with one another through a common interest. Dog owners can slide into those Doggy DM’s to discuss fun date ideas between their little furry goofballs. Appreciators can follow their favorite dogs to keep up to date on their  adorable daily puppy patterns. 
