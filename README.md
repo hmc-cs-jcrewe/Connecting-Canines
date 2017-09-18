@@ -17,7 +17,7 @@ Our minimum viable product will involve 1 View, Model and Controller.
 <br/><br/>
 The controller talks to the model to pull up the next picture (and its description) after one of two actions are taken by the user. Clicking the "next" button will simply pull up the next photo, clicking the "like" button will add a like to the current combination, then pull up the next one. 
 <br/> <br/>
-The model will contain four attributes: Dog's name', picture, a short description, and number of likes it has received. We will use the paperclip gem to implement this as it allows us to easily place pictures in our database. 
+The model will contain four attributes: Dog's name, picture, a short description, and number of likes it has received. We will use the paperclip gem to implement this as it allows us to easily place pictures in our database. 
 <br/><br/>
 Our view will use the same Bootstrap template as the Instagram project for its layout.
 
