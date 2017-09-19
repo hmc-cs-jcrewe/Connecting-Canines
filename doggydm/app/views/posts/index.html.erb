@@ -1,9 +1,12 @@
-<% @posts.each do |x| %>
    <div class="white">
-      <%= image_tag x.image.url(:medium) %>
+      <%= image_tag @post.image.url(:medium) %>
       <br>
-      <%= x.description %>
-      <%= link_to 'Delete', x, method: :delete %>
+      <%= @post.description %>
+      <%= link_to("Next Post", @post.next) if @post.next %>
+      <% if can? :destroy, @post %>
+        <li>
+           <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+      <% end %>
    </div>
 
-<% end %>

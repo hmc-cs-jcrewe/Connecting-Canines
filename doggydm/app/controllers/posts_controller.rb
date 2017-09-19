@@ -3,13 +3,14 @@ class PostsController < ApplicationController
   	@post = Post.new
   end
 
-  def index
-  	@posts = Post.all 
+  def index 
+  	@post = Post.first
   end
 
   def destroy
-  	@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
+    redirect_to root_url
   end
 
   def show
@@ -18,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
   	@post = Post.new(permit_post)
+    @post.user_id = current_user.id
   	if @post.save
   		flash[:success] = "Success!"
   		redirect_to(@post)

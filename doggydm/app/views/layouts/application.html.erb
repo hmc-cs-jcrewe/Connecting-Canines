@@ -30,11 +30,10 @@
                         <li>
                           <%= link_to "Settings", edit_user_registration_path %>
                         </li>
-                        <% if can? :manage, User %>
+                        <% if can? :create, Post %>
                             <li>
                               <%= link_to "New Post", new_post_path %>
                             </li>
-                            <p>Owners only! </p>
                         <% end %>
                       <% else %>
                       <li>

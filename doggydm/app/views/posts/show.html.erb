@@ -2,5 +2,12 @@
     <%= image_tag(@post.image.url(:medium)) %>
     <br>
     <%= @post.description %>
-    <%= link_to 'Delete', @post, method: :delete %>
+    <%= link_to("Next Post", @post.next) if @post.next %>
+    <% if can? :destroy, @post %>
+        <li>
+           <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+    <% end %>
 </div>
+
+

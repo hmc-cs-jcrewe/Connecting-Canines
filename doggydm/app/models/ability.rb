@@ -31,6 +31,8 @@ class Ability
      user ||= User.new # guest user (not logged in)
       if user.owner_role?
         can :manage, User
+        can [:create], Post
+        can [:update, :destroy], Post, user_id: user.id
       end
   end 
 end
