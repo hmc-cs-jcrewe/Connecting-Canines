@@ -9630,3 +9630,668 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 173ms (Views: 156.3ms | ActiveRecord: 1.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:14:38 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 381ms (Views: 316.2ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-09-19 18:14:41 -0700
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1sL93e8wPrrpUgv8dLghPqv7ZbkzhX6Lo1hKBIe7rSlSfYUs6u8BsK4EVjziWzq4tOOlBWlfrx0u5SMuZMqAng=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:14:41 -0700
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-19 18:14:41 -0700
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 64ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-09-19 18:14:42 -0700
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 76ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddLikesToPosts (20170920012409)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "likes" integer[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920012409"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:25:58 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-19 18:25:58 -0700
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 352ms (Views: 337.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-09-19 18:26:08 -0700
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XonaJtMx+LfcFqpwrmACZ6r3PZK8YFZ3gXmUqOGwQlO+1F7+Ah22+7hBVWjc0EzcbwdJdZSkinzbgZkEmjcQHw==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-09-20 01:26:08.537292"], ["last_sign_in_at", "2017-09-20 00:59:27.196033"], ["sign_in_count", 9], ["updated_at", "2017-09-20 01:26:08.538249"], ["id", 3]]
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 191ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:26:08 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 62ms (Views: 43.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:26:26 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 68ms (Views: 60.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-19 18:26:32 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IrjsCD8csmIzPPgrDb7R8KRsEKV020zEFjPYhIrCY8WcXczgLaRkYfDeCnIngczVyz9n8Ewl4GDjVeYOUbtJKA==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f8d4dc214b0 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170919-95214-1eutn0k.jpg>, @original_filename="dog14.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog14.jpg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"sadfasd"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170919-95214-1xfjn05.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170919-95214-2xotej.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170919-95214-2xotej.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170919-95214-2xotej.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/9892aa27dcf36020e1339df2983d25dc20170919-95214-amitdd'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170919-95214-2xotej.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170919-95214-2xotej.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170919-95214-2xotej.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/9892aa27dcf36020e1339df2983d25dc20170919-95214-i0ameu'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170919-95214-1e7key0.jpg'
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "sadfasd"], ["created_at", "2017-09-20 01:26:32.676659"], ["updated_at", "2017-09-20 01:26:32.676659"], ["image_file_name", "dog14.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 70180], ["image_updated_at", "2017-09-20 01:26:32.479121"], ["user_id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/34
+Completed 302 Found in 211ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/34" for 127.0.0.1 at 2017-09-19 18:26:32 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 34) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 65ms (Views: 59.3ms | ActiveRecord: 0.6ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNamesToPosts (20170920012957)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "posts" ADD "names" text[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920012957"]]
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:30:53 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Post:0x007fc4e83c5ca8>
+Did you mean?  names):
+    1:    <div class="white">
+    2:       <%= image_tag @post.image.url(:medium) %>
+    3:       <br>
+    4:       <%= @post.name %>
+    5:       <%= @post.description %>
+    6:       <%= @post.likes %>
+    7:       <%= link_to("GOOD DOG", @post.next) if @post.next %>
+  
+app/views/posts/index.html.erb:4:in `_app_views_posts_index_html_erb___184644417442648919_70241843290540'
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:31:16 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 259ms (Views: 255.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:31:19 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (146.4ms)
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_box' for #<ActionView::Helpers::FormBuilder:0x007fc4e5dad250>
+Did you mean?  text_area):
+     6:       <%= f.file_field :image %>
+     7:    <br>
+     8:    <%= f.label :name %>
+     9:    <%= f.text_box :names %>
+    10:    <br>
+    11:    <%= f.label :description %>
+    12:    <%= f.text_area :description %>
+  
+app/views/posts/new.html.erb:9:in `block in _app_views_posts_new_html_erb__4393930438063524032_70241823355100'
+app/views/posts/new.html.erb:4:in `_app_views_posts_new_html_erb__4393930438063524032_70241823355100'
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:31:29 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 52ms (Views: 48.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:31:40 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (184.4ms)
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `text' for #<ActionView::Helpers::FormBuilder:0x007fc4e5e0fc48>):
+     6:       <%= f.file_field :image %>
+     7:    <br>
+     8:    <%= f.label :name %>
+     9:    <%= f.text :names %>
+    10:    <br>
+    11:    <%= f.label :description %>
+    12:    <%= f.text_area :description %>
+  
+app/views/posts/new.html.erb:9:in `block in _app_views_posts_new_html_erb__4393930438063524032_70241823691960'
+app/views/posts/new.html.erb:4:in `_app_views_posts_new_html_erb__4393930438063524032_70241823691960'
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:32:36 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 41ms (Views: 38.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:33:22 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (121.9ms)
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `hidden_field_tag' for #<ActionView::Helpers::FormBuilder:0x007fc4eaa38840>
+Did you mean?  hidden_field):
+    11:    <%= f.label :description %>
+    12:    <%= f.text_area :description %>
+    13:    <br>
+    14:    <%= f.hidden_field_tag :likes %>
+    15:    <%= f.submit %>
+    16: <% end %>
+  
+app/views/posts/new.html.erb:14:in `block in _app_views_posts_new_html_erb__4393930438063524032_70241863568700'
+app/views/posts/new.html.erb:4:in `_app_views_posts_new_html_erb__4393930438063524032_70241863568700'
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:33:38 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (116.5ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `hidden_field_tag' for #<ActionView::Helpers::FormBuilder:0x007fc4e613a468>
+Did you mean?  hidden_field):
+    11:    <%= f.label :description %>
+    12:    <%= f.text_area :description %>
+    13:    <br>
+    14:    <%= f.hidden_field_tag(:password) %>
+    15:    <br>
+    16:    <%= f.submit %>
+    17: <% end %>
+  
+app/views/posts/new.html.erb:14:in `block in _app_views_posts_new_html_erb__4393930438063524032_70241830359360'
+app/views/posts/new.html.erb:4:in `_app_views_posts_new_html_erb__4393930438063524032_70241830359360'
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:33:52 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (202.2ms)
+Completed 500 Internal Server Error in 211ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `hidden_field_' for #<ActionView::Helpers::FormBuilder:0x007fc4e6ac9510>
+Did you mean?  hidden_field):
+    11:    <%= f.label :description %>
+    12:    <%= f.text_area :description %>
+    13:    <br>
+    14:    <%= f.hidden_field_ :likes  %>
+    15:    <br>
+    16:    <%= f.submit %>
+    17: <% end %>
+  
+app/views/posts/new.html.erb:14:in `block in _app_views_posts_new_html_erb__4393930438063524032_70241830225640'
+app/views/posts/new.html.erb:4:in `_app_views_posts_new_html_erb__4393930438063524032_70241830225640'
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:33:58 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 55ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:34:36 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "0":String):
+    11:    <%= f.label :description %>
+    12:    <%= f.text_area :description %>
+    13:    <br>
+    14:    <%= f.hidden_field(:likes, "0")  %>
+    15:    <br>
+    16:    <%= f.submit %>
+    17: <% end %>
+  
+app/views/posts/new.html.erb:14:in `block in _app_views_posts_new_html_erb__4393930438063524032_70241863435060'
+app/views/posts/new.html.erb:4:in `_app_views_posts_new_html_erb__4393930438063524032_70241863435060'
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:34:44 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for 0:Integer):
+    11:    <%= f.label :description %>
+    12:    <%= f.text_area :description %>
+    13:    <br>
+    14:    <%= f.hidden_field(:likes, 0)  %>
+    15:    <br>
+    16:    <%= f.submit %>
+    17: <% end %>
+  
+app/views/posts/new.html.erb:14:in `block in _app_views_posts_new_html_erb__4393930438063524032_70241853863400'
+app/views/posts/new.html.erb:4:in `_app_views_posts_new_html_erb__4393930438063524032_70241853863400'
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:35:05 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/app/views/posts/new.html.erb:14: syntax error, unexpected '=', expecting ')'
+pend=( f.hidden_field(:likes = 0)  );@output_buffer.safe_app
+                              ^
+/Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/app/views/posts/new.html.erb:19: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/posts/new.html.erb:14: syntax error, unexpected '=', expecting ')'
+app/views/posts/new.html.erb:19: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:35:13 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:35:55 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 56ms (Views: 52.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-19 18:36:17 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1sv6LzPqDSA+M94NAHSLvNqakEe2bwnqBUEKPK2bOy5gMrrc3r0rhCJD+JA3I7ZLpwMDO3TwiXxRoMLOnRt82w==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fc4eabce010 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170919-95836-13n89i4.jpg>, @original_filename="dog7.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog7.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"lily", "description"=>"asdfjhaslkdjfha", "likes"=>"0"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Unpermitted parameters: :names, :likes
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/30fc62328ea0b50a72df81e3052d793120170919-95836-jcku2j.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/30fc62328ea0b50a72df81e3052d793120170919-95836-itninl.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/30fc62328ea0b50a72df81e3052d793120170919-95836-itninl.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/30fc62328ea0b50a72df81e3052d793120170919-95836-itninl.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/b2ac424f7f558cf8d252bcad9e0966d420170919-95836-hq201x'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/30fc62328ea0b50a72df81e3052d793120170919-95836-itninl.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/30fc62328ea0b50a72df81e3052d793120170919-95836-itninl.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/30fc62328ea0b50a72df81e3052d793120170919-95836-itninl.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/b2ac424f7f558cf8d252bcad9e0966d420170919-95836-1hjrx51'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/30fc62328ea0b50a72df81e3052d793120170919-95836-sr1j11.jpg'
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "asdfjhaslkdjfha"], ["created_at", "2017-09-20 01:36:18.270201"], ["updated_at", "2017-09-20 01:36:18.270201"], ["image_file_name", "dog7.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 81059], ["image_updated_at", "2017-09-20 01:36:17.929863"], ["user_id", 3]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/35
+Completed 302 Found in 354ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/posts/35" for 127.0.0.1 at 2017-09-19 18:36:18 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 35) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 60ms (Views: 53.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/35" for 127.0.0.1 at 2017-09-19 18:37:11 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 35) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 76ms (Views: 44.3ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/posts/35" for 127.0.0.1 at 2017-09-19 18:37:16 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KlC0cn18rLu8qBBJoqByMtnrHpU0pObl8vn4OU47t7KcqfSBkCuKH6DYNtSV90/FpHKN6fY7ZnOmGDDLfrvwRw==", "id"=>"35"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 35]]
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/035/original/dog7.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/035/medium/dog7.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/035/thumb/dog7.jpg
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:37:16 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 61ms (Views: 54.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:37:19 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 58ms (Views: 49.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-19 18:37:25 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EAGEH8jCbcJOG8t5diE1UATU+YYJnzge7yD+FSyINI6u5KT32nq7wY35OSBcHih1a4eO0zFhlLoaRsCf9/EeYw==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fc4eadf3660 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170919-95836-7msw5a.jpg>, @original_filename="dog1.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog1.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"asdf", "description"=>"sadfasdfa", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Unpermitted parameter: :names
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170919-95836-17dpape.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170919-95836-1xjsnbt.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170919-95836-1xjsnbt.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170919-95836-1xjsnbt.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/8547ccd138124ae2613417ddda8a668820170919-95836-138sdi6'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170919-95836-1xjsnbt.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170919-95836-1xjsnbt.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170919-95836-1xjsnbt.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/8547ccd138124ae2613417ddda8a668820170919-95836-1doz6y6'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170919-95836-8gilvx.jpg'
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "sadfasdfa"], ["created_at", "2017-09-20 01:37:26.176344"], ["updated_at", "2017-09-20 01:37:26.176344"], ["image_file_name", "dog1.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 249026], ["image_updated_at", "2017-09-20 01:37:25.862414"], ["user_id", 3], ["likes", 10]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/36
+Completed 302 Found in 331ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/36" for 127.0.0.1 at 2017-09-19 18:37:26 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 36) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 62ms (Views: 56.3ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/posts/36" for 127.0.0.1 at 2017-09-19 18:37:33 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Sqdg3rNqj7/MpqtWvtTIgEzGAY6voU3vaf6T7w/wMib8XiAtXj2pG9DWjcuJg/V3MV+S8m0+zXk9H1sdP3B10w==", "id"=>"36"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 36]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/036/original/dog1.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/036/medium/dog1.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/036/thumb/dog1.jpg
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 9.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:37:33 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 74ms (Views: 65.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:37:37 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 58ms (Views: 53.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-19 18:37:46 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DajyZ0y5VijxOANC2Jyp1ITPr7E0dYM7dNM7UiAmCwGzTdKPXgGAKzLa8Rvyo7Tx65zY5AyLL5+BtQXY+18h7A==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fc4e970e530 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170919-95836-iu2bcl.jpg>, @original_filename="dog3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog3.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"name", "description"=>"descr", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Unpermitted parameter: :names
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170919-95836-z2tc0k.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170919-95836-lyu02v.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170919-95836-lyu02v.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170919-95836-lyu02v.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/71f585a95c710ba05803936ef93f17e220170919-95836-5lse23'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170919-95836-lyu02v.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170919-95836-lyu02v.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170919-95836-lyu02v.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/71f585a95c710ba05803936ef93f17e220170919-95836-6ah81p'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170919-95836-10wh9v0.jpg'
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "descr"], ["created_at", "2017-09-20 01:37:46.949456"], ["updated_at", "2017-09-20 01:37:46.949456"], ["image_file_name", "dog3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 53568], ["image_updated_at", "2017-09-20 01:37:46.755250"], ["user_id", 3], ["likes", 10]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/37
+Completed 302 Found in 207ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/37" for 127.0.0.1 at 2017-09-19 18:37:46 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 37) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 52ms (Views: 48.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/posts/37" for 127.0.0.1 at 2017-09-19 18:37:50 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KEXopPOi4RZXCY7f1Bn3JdsRe1EjNjzYTEbNSquL0mGevKhXHvXHskt5qELjTsrSpojoLeGpvE4YpwW4mwuVlA==", "id"=>"37"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 37]]
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/037/original/dog3.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/037/medium/dog3.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/037/thumb/dog3.jpg
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:37:50 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 68ms (Views: 60.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-19 18:38:18 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 87ms (Views: 55.5ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-19 18:38:29 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PYoe78zO9Hh8bgr0K4Bpk7DH4ilauKRKX6DCePlbVdeDbz4H3nYie7+M+K0Bv3S235SVfGJGCO6qxvzyIiJ/Og==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fc4ead69758 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170919-95836-1omz6y8.jpg>, @original_filename="dog11.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog11.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"asdfas", "description"=>"2384529038475", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/de925fd18d37891e6174e634249cc94120170919-95836-aag14f.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/de925fd18d37891e6174e634249cc94120170919-95836-16vjo7q.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/de925fd18d37891e6174e634249cc94120170919-95836-16vjo7q.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/de925fd18d37891e6174e634249cc94120170919-95836-16vjo7q.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/9abb62d11f0151650e0f7609919b04a120170919-95836-dym3dk'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/de925fd18d37891e6174e634249cc94120170919-95836-16vjo7q.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/de925fd18d37891e6174e634249cc94120170919-95836-16vjo7q.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/de925fd18d37891e6174e634249cc94120170919-95836-16vjo7q.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/9abb62d11f0151650e0f7609919b04a120170919-95836-u7p5lz'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/de925fd18d37891e6174e634249cc94120170919-95836-10qoek0.jpg'
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "2384529038475"], ["created_at", "2017-09-20 01:38:29.858529"], ["updated_at", "2017-09-20 01:38:29.858529"], ["image_file_name", "dog11.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 91703], ["image_updated_at", "2017-09-20 01:38:29.645605"], ["user_id", 3], ["likes", 10], ["names", "asdfas"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/38
+Completed 302 Found in 230ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/38" for 127.0.0.1 at 2017-09-19 18:38:29 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 38) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 52ms (Views: 47.6ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/posts/38" for 127.0.0.1 at 2017-09-19 18:38:45 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Rv4a3kpQhxG1PFJdwzz8sQtyM71hsFAXDsC6UftBkOXwB1otpwehtalMdMD0a8FGduugwaMv0IFaIXKjy8HXEA==", "id"=>"38"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 38]]
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/038/original/dog11.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/038/medium/dog11.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/038/thumb/dog11.jpg
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-19 18:38:45 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 9) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 66ms (Views: 59.9ms | ActiveRecord: 1.4ms)
+
+

@@ -1,7 +1,9 @@
    <div class="white">
       <%= image_tag @post.image.url(:medium) %>
       <br>
+      <%= @post.names %>
       <%= @post.description %>
+      <%= @post.likes %>
       <%= link_to("GOOD DOG", @post.next) if @post.next %>
       <% if can? :destroy, @post %>
         <li>
