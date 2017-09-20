@@ -5,6 +5,7 @@
       <%= @post.description %>
       <%= @post.likes %>
       <%= link_to("GOOD DOG", @post.next) if @post.next %>
+      <%= link_to("GREAT DOG", @post.like) %>
       <% if can? :destroy, @post %>
         <li>
            <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>

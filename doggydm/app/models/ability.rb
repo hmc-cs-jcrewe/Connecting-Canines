@@ -32,7 +32,11 @@ class Ability
       if user.owner_role?
         can :manage, User
         can [:create], Post
-        can [:update, :destroy], Post, user_id: user.id
+        can [:destroy], Post, user_id: user.id
+        can :update, Post
+      else 
+        can :update, Post
       end
+
   end 
 end

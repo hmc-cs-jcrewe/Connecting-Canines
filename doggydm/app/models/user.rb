@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   ROLES = %w[owner appreciator].freeze
+
   
 end
