@@ -5,12 +5,4 @@ class Post < ApplicationRecord
     def next
        Post.where(["id > ?", id]).first
     end
-
-    def like
-       @post = Post.find(id)
-       @post.likes = @post.likes+1
-       @post.save
-       Post.where(["id > ?", id]).first
-    end
-
 end

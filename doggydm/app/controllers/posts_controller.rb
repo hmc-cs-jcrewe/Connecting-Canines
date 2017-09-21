@@ -17,6 +17,13 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.likes = @post.likes+1
+    @post.save
+    redirect_to(@post)
+  end 
+
   def create
   	@post = Post.new(permit_post)
     @post.user_id = current_user.id
