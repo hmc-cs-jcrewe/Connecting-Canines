@@ -13359,3 +13359,472 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 86ms (Views: 78.1ms | ActiveRecord: 3.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-20 21:41:05 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 39) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 39) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 53], ["updated_at", "2017-09-21 04:41:05.907356"], ["id", 39]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 39) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 464ms (Views: 366.2ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-20 21:41:09 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 88ms (Views: 81.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-20 21:42:33 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MK29PVXkPvqRDXFGA8AVfX5g6Y2Pa70ibmE+e8gjxKWOSJ3VR1zo+VLvgx8p/whYETOe2LeVEYabBwDxE1ruSA==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007ff93f43f6f8 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170920-66947-gfhzz9.jpg>, @original_filename="dog1.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog1.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"Daisy", "description"=>"", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170920-66947-1lhcxbx.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170920-66947-1gj8m02.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170920-66947-1gj8m02.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170920-66947-1gj8m02.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/16bec50150ff58dd9938ad559aecc80a20170920-66947-1rq8cjf'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170920-66947-1gj8m02.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170920-66947-1gj8m02.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170920-66947-1gj8m02.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/16bec50150ff58dd9938ad559aecc80a20170920-66947-15w3rum'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/6be237a000de33e2076acc5c25c3661720170920-66947-j4r693.jpg'
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", ""], ["created_at", "2017-09-21 04:42:33.736278"], ["updated_at", "2017-09-21 04:42:33.736278"], ["image_file_name", "dog1.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 249026], ["image_updated_at", "2017-09-21 04:42:33.343905"], ["user_id", 3], ["likes", 10], ["names", "Daisy"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/41
+Completed 302 Found in 415ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/posts/41" for 127.0.0.1 at 2017-09-20 21:42:33 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 41) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 11], ["updated_at", "2017-09-21 04:42:33.781715"], ["id", 41]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 41) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 86ms (Views: 77.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-20 21:42:38 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 103ms (Views: 93.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-20 21:42:47 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4uv8OjUWwzQ4T8oDA2zp/s7RtLF9qbKQc16jbnZpN2RcDtzSJ64VN/utOFopU/TboYLD5EVXHjSGOJ3krRAdiQ==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007ff94271b978 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170920-66947-1om0115.jpg>, @original_filename="dog2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog2.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"Ghost", "description"=>"", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170920-66947-1rgseqp.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170920-66947-ncrtb1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170920-66947-ncrtb1.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170920-66947-ncrtb1.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/d66d2390bc36143585bd4d8d35016e8520170920-66947-gbey5x'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170920-66947-ncrtb1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170920-66947-ncrtb1.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170920-66947-ncrtb1.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/d66d2390bc36143585bd4d8d35016e8520170920-66947-kb8907'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170920-66947-rfa24s.jpg'
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", ""], ["created_at", "2017-09-21 04:42:47.525368"], ["updated_at", "2017-09-21 04:42:47.525368"], ["image_file_name", "dog2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 195355], ["image_updated_at", "2017-09-21 04:42:47.246813"], ["user_id", 3], ["likes", 10], ["names", "Ghost"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/42
+Completed 302 Found in 312ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/42" for 127.0.0.1 at 2017-09-20 21:42:47 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 42) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 11], ["updated_at", "2017-09-21 04:42:47.576676"], ["id", 42]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 42) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 139ms (Views: 127.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-20 21:42:48 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 92ms (Views: 85.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-20 21:42:58 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wz5Jv4sbLCjq3KgUmVkoBLWy6715hPepW8J8Ftnm8dd922lXmaP6Kyk+Wk2zZjUh2uGc6EF6Ww2upEKcAp/bOg==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007ff93f2eff50 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170920-66947-11i6fn8.jpg>, @original_filename="dog3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog3.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"Butterscotch", "description"=>"", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170920-66947-205iqp.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170920-66947-m60vbd.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170920-66947-m60vbd.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170920-66947-m60vbd.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/1bb0acce513837273651a8ebd1b2029120170920-66947-vwibsz'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170920-66947-m60vbd.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170920-66947-m60vbd.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170920-66947-m60vbd.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/1bb0acce513837273651a8ebd1b2029120170920-66947-1abdk7b'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170920-66947-tlto7m.jpg'
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", ""], ["created_at", "2017-09-21 04:42:58.639048"], ["updated_at", "2017-09-21 04:42:58.639048"], ["image_file_name", "dog3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 53568], ["image_updated_at", "2017-09-21 04:42:58.387738"], ["user_id", 3], ["likes", 10], ["names", "Butterscotch"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/43
+Completed 302 Found in 270ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/posts/43" for 127.0.0.1 at 2017-09-20 21:42:58 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"43"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 43], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 43) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 43], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 11], ["updated_at", "2017-09-21 04:42:58.677934"], ["id", 43]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 43) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 84ms (Views: 77.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-20 21:42:59 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 89ms (Views: 82.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-20 21:43:09 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bykQBPj283Do9ZvoJbqJ+1UKvYp2T05cIudNIEA8N6HRzDDs6k4lcysXabEPhZTeOlnK306x4vjXgXOqm0UdTA==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007ff941823790 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170920-66947-cnk5eg.jpg>, @original_filename="dog4.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog4.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"Sally", "description"=>"", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/4bfe68a5734554256bdc1516b256507520170920-66947-1aryq4e.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/4bfe68a5734554256bdc1516b256507520170920-66947-wamzlv.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/4bfe68a5734554256bdc1516b256507520170920-66947-wamzlv.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/4bfe68a5734554256bdc1516b256507520170920-66947-wamzlv.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/3ff44aad7b08d80009050377c4d3900f20170920-66947-1965p9c'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/4bfe68a5734554256bdc1516b256507520170920-66947-wamzlv.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/4bfe68a5734554256bdc1516b256507520170920-66947-wamzlv.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/4bfe68a5734554256bdc1516b256507520170920-66947-wamzlv.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/3ff44aad7b08d80009050377c4d3900f20170920-66947-9qij5x'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/4bfe68a5734554256bdc1516b256507520170920-66947-1t7leyd.jpg'
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", ""], ["created_at", "2017-09-21 04:43:09.668293"], ["updated_at", "2017-09-21 04:43:09.668293"], ["image_file_name", "dog4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 236526], ["image_updated_at", "2017-09-21 04:43:09.425417"], ["user_id", 3], ["likes", 10], ["names", "Sally"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/44
+Completed 302 Found in 261ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/44" for 127.0.0.1 at 2017-09-20 21:43:09 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 44) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 11], ["updated_at", "2017-09-21 04:43:09.705856"], ["id", 44]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 44) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 103ms (Views: 96.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-20 21:43:10 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 86ms (Views: 80.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-20 21:43:28 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E7M6SyTGnZaR0Io4rheIehscd4c0YZoDSNKKJnBaTzytVhqjNn5LlVIyeGGEKJVfdE8A0gyfNqe9tLSsqyNl0Q==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007ff944041a88 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170920-66947-6qjzka.jpg>, @original_filename="dog14.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog14.jpg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"Skipper", "description"=>"", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170920-66947-hiyjp1.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170920-66947-10ck65o.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170920-66947-10ck65o.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170920-66947-10ck65o.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/49b599030feea25c66bbaeb3efe03c5320170920-66947-14ei4vs'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170920-66947-10ck65o.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170920-66947-10ck65o.jpg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170920-66947-10ck65o.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/49b599030feea25c66bbaeb3efe03c5320170920-66947-1ise93a'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170920-66947-186nar9.jpg'
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", ""], ["created_at", "2017-09-21 04:43:29.220406"], ["updated_at", "2017-09-21 04:43:29.220406"], ["image_file_name", "dog14.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 70180], ["image_updated_at", "2017-09-21 04:43:28.972426"], ["user_id", 3], ["likes", 10], ["names", "Skipper"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/45
+Completed 302 Found in 270ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/45" for 127.0.0.1 at 2017-09-20 21:43:29 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"45"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 45) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 11], ["updated_at", "2017-09-21 04:43:29.260665"], ["id", 45]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 45) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 87ms (Views: 77.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-20 21:43:31 -0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 74ms (Views: 67.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-20 21:43:51 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uKXAnciIs2iPO/S0Dy57ZbgpJScZQCE4sE3D5oTUe/oGQOB12jBla0zZBu0lEWZA13pSciG+jZxFK/1sX61RFw==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007ff93f374a20 @tempfile=#<Tempfile:/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/RackMultipart20170920-66947-4rb7vk.jpeg>, @original_filename="dog19.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"dog19.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "names"=>"Briar", "description"=>"", "likes"=>"10"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170920-66947-1gp7mno.jpeg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170920-66947-umnliu.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170920-66947-umnliu.jpeg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170920-66947-umnliu.jpeg[0]' -auto-orient -resize "500x500>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/3f6ff663900fa440965ecb29342f8ca720170920-66947-1cugp7o'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170920-66947-umnliu.jpeg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170920-66947-umnliu.jpeg[0]'
+Command :: convert '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170920-66947-umnliu.jpeg[0]' -auto-orient -resize "100x100>" '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/3f6ff663900fa440965ecb29342f8ca720170920-66947-1ivroii'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/4v/rk_j04615n3235cwdv3t01mh0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170920-66947-w9hv4j.jpeg'
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", ""], ["created_at", "2017-09-21 04:43:51.259680"], ["updated_at", "2017-09-21 04:43:51.259680"], ["image_file_name", "dog19.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 7703], ["image_updated_at", "2017-09-21 04:43:51.105807"], ["user_id", 3], ["likes", 10], ["names", "Briar"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/46
+Completed 302 Found in 177ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/posts/46" for 127.0.0.1 at 2017-09-20 21:43:51 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 46) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 11], ["updated_at", "2017-09-21 04:43:51.300691"], ["id", 46]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 46) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 81ms (Views: 74.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 21:43:53 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 39) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 39) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 54], ["updated_at", "2017-09-21 04:43:53.374826"], ["id", 39]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 39) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 86ms (Views: 76.3ms | ActiveRecord: 3.3ms)
+
+
+Started DELETE "/posts/39" for 127.0.0.1 at 2017-09-20 21:43:55 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bddw3zm520+vzBb1Fiv8mvYpivM/Gir8HTnd4nDV77XbLjAs1O7967O8MGghfMFti7AZj/2FqmpJ2BUQQFWoQA==", "id"=>"39"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 39]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/039/original/dog7.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/039/medium/dog7.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/039/thumb/dog7.jpg
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 21:43:55 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 40) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 40) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 80], ["updated_at", "2017-09-21 04:43:55.968647"], ["id", 40]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 40) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 88ms (Views: 67.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 21:44:00 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 40) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 40) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 81], ["updated_at", "2017-09-21 04:44:00.124637"], ["id", 40]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 40) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 73ms (Views: 64.5ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/posts/40" for 127.0.0.1 at 2017-09-20 21:44:02 -0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JO49C3t3whzUuXb3d2DehRV5c6Nwj/b1fHUJD2987/GSF334liDkuMjJUGpAN+NyaODg37IQdmMolMH9X/yoBA==", "id"=>"40"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 40]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/040/original/dog7.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/040/medium/dog7.jpg
+[paperclip] deleting /Users/montana/Desktop/doggydms/Connecting-Canines/doggydm/public/system/posts/images/000/000/040/thumb/dog7.jpg
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 21:44:02 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 41) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 41) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 12], ["updated_at", "2017-09-21 04:44:02.723020"], ["id", 41]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 41) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 75ms (Views: 67.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/posts/42" for 127.0.0.1 at 2017-09-20 21:44:05 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 42) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 42) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 12], ["updated_at", "2017-09-21 04:44:05.755008"], ["id", 42]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 42) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 86ms (Views: 77.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/posts/43" for 127.0.0.1 at 2017-09-20 21:44:06 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"43"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 43], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 43) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 43) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 43], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 12], ["updated_at", "2017-09-21 04:44:06.815873"], ["id", 43]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 43) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 96ms (Views: 80.9ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/posts/44" for 127.0.0.1 at 2017-09-20 21:44:07 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 44) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 44) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 12], ["updated_at", "2017-09-21 04:44:07.866286"], ["id", 44]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 44) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 97ms (Views: 89.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/posts/45" for 127.0.0.1 at 2017-09-20 21:44:08 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"45"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 45) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 45) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 12], ["updated_at", "2017-09-21 04:44:08.752086"], ["id", 45]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 45) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 93ms (Views: 82.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/posts/46" for 127.0.0.1 at 2017-09-20 21:44:09 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 46) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 12], ["updated_at", "2017-09-21 04:44:09.679145"], ["id", 46]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 46) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 111ms (Views: 98.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 21:44:11 -0700
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 41) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 41) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "likes" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["likes", 13], ["updated_at", "2017-09-21 04:44:11.508649"], ["id", 41]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (id > 41) ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 114ms (Views: 102.1ms | ActiveRecord: 3.4ms)
+
+
