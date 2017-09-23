@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     @post.save
     if @post.next
       redirect_to(@post.next)
+      flash[:success] = "Here's your next awesome dog!"
     else
       redirect_to(@post)
     end 
