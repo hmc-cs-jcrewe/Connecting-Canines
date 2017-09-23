@@ -1,0 +1,16 @@
+<div class="white">
+    <%= image_tag(@post.image.url(:medium)) %>
+    <br>
+    <%= @post.names %>
+    <%= @post.description %>
+    <%= @post.likes %>
+    <%= link_to("GOOD DOG", @post.next) if @post.next %>
+     <%= link_to 'GREAT DOG', @post, method: :patch %>
+    <% if can? :destroy, @post %>
+        <li>
+           <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+    <% end %>
+</div>
+
+
