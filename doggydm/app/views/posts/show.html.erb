@@ -4,8 +4,8 @@
     <%= @post.names %>
     <%= @post.description %>
     <%= @post.likes %>
-    <%= link_to("GOOD DOG", @post.next) if @post.next %>
-     <%= link_to 'GREAT DOG', @post, method: :patch %>
+     <%= link_to("GOOD DOG", @post.next, :class => "good_dog") if @post.next %>    
+      <%= link_to('GREAT DOG', @post, method: :patch, :class => "great_dog") %>
     <% if can? :destroy, @post %>
         <li>
            <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
