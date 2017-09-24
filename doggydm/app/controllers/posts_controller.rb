@@ -21,8 +21,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.likes = @post.likes+1
     @post.save
-    redirect_to(@post)
-  end 
+    if !@post.next
+      redirect_to(end_page_path)
+    else
+      redirect_to(@post.next)
+    end 
+  end
 
   def create
   	@post = Post.new(permit_post)
@@ -34,6 +38,10 @@ class PostsController < ApplicationController
   		flash[:error] = @post.errors.full_messages
   		redirect_to new_post_path
     end
+  end
+
+  def end_page
+    @post = nil
   end
 
   private  
