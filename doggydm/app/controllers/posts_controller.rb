@@ -21,11 +21,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.likes = @post.likes+1
     @post.save
-    if @post.next
-      redirect_to(@post.next)
+    if !@post.next
+      redirect_to(end_page_path)
     else
-      flash[:notice] = "You're out of new adorable dogs to look at"
-      redirect_to(@post)
+      redirect_to(@post.next)
     end 
   end
 
@@ -39,6 +38,10 @@ class PostsController < ApplicationController
   		flash[:error] = @post.errors.full_messages
   		redirect_to new_post_path
     end
+  end
+
+  def end_page
+    @post = nil
   end
 
   private  

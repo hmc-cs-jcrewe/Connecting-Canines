@@ -22,7 +22,7 @@
   post1.user_id = user1.id
   post2 = Post.create({ names: 'Ghost', likes: 13, description: 'Spooo00oOO0Oky', image: seed_image('dog2')})
   post2.user_id = user2.id
-  post3 = Post.create({ names: 'Butterscotch', likes: 20, description: 'I\' corgeous', image: seed_image('dog3')})
+  post3 = Post.create({ names: 'Butterscotch', likes: 20, description: 'I\'m corgeous', image: seed_image('dog3')})
   post3.user_id = user1.id
   post4 = Post.create({ names: 'Sally', likes: 10, description: 'I love long walks through the flowers', image: seed_image('dog4')})
   post4.user_id = user1.id
