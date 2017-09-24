@@ -6,7 +6,6 @@
       <%= @post.likes %>
       <%= link_to("GOOD DOG", @post.next ? @post.next : end_page_path) %>
       <%= link_to('GREAT DOG', @post, method: :patch) %>
-
       <% if can? :destroy, @post %>
         <li>
            <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>

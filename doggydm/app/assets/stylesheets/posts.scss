@@ -1,3 +1,32 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.good_dog{
+  position: absolute;
+  font: bold 20px Palatino;
+  height: 70px;
+  width: 120px;
+  border-radius: 40px;
+  text-decoration: none;
+  background-color: #c0aee0;
+  color: #000059;
+  padding: 12px 6px 2px 6px;
+  position: absolute;
+  left: 20%;
+  top: 100px;
+}
+
+.great_dog{
+  position: absolute;
+  font: bold 20px Palatino;
+  height: 70px;
+  border-radius: 40px;
+  width: 120px;
+  text-decoration: none;
+  background-color: #c0aee0;
+  color: #000059;
+  padding: 12px 6px 2px 6px;
+  position: absolute;
+  right: 20%;
+  top: 100px;
+}
