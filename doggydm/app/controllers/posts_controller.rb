@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     if @post.next
       redirect_to(@post.next)
     else
+      flash[:notice] = "You're out of new adorable dogs to look at"
       redirect_to(@post)
     end 
   end
