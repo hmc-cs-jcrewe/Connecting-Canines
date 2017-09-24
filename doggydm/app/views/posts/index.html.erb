@@ -4,7 +4,7 @@
       <%= @post.names %>
       <%= @post.description %>
       <%= @post.likes %>
-      <%= link_to("GOOD DOG", @post.next) if @post.next %>
+      <%= link_to("GOOD DOG", @post.next ? @post.next : end_page_path) %>
       <%= link_to('GREAT DOG', @post, method: :patch) %>
 
       <% if can? :destroy, @post %>
