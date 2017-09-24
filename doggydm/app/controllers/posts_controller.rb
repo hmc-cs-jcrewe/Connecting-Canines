@@ -21,8 +21,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.likes = @post.likes+1
     @post.save
-    redirect_to(@post)
-  end 
+    if @post.next
+      redirect_to(@post.next)
+    else
+      redirect_to(@post)
+    end 
+  end
 
   def create
   	@post = Post.new(permit_post)
