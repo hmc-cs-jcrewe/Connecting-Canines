@@ -26174,3 +26174,652 @@ Processing by PostsController#end_page as HTML
 Completed 200 OK in 91ms (Views: 85.7ms | ActiveRecord: 0.4ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "user_id" integer, "likes" integer, "names" text)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_role" boolean DEFAULT 'f', "appreciator_role" boolean DEFAULT 't', "role" varchar)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170920012957)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170909205733),
+(20170909230437),
+(20170910172656),
+(20170918070835),
+(20170918080234),
+(20170919224230),
+(20170920012409);
+
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-25 04:09:14.655576"], ["updated_at", "2017-09-25 04:09:14.655576"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "user_id" integer, "likes" integer, "names" text)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_role" boolean DEFAULT 'f', "appreciator_role" boolean DEFAULT 't', "role" varchar)[0m
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170920012957)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170909205733),
+(20170909230437),
+(20170910172656),
+(20170918070835),
+(20170918080234),
+(20170919224230),
+(20170920012409);
+
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-25 04:09:14.697803"], ["updated_at", "2017-09-25 04:09:14.697803"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at", "owner_role", "appreciator_role") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$11$d5jDmP/4eHox00FQRTGizeL55/jiyknawFlKZjonlJ9RKnPcGrX9."], ["created_at", "2017-09-25 04:09:14.863689"], ["updated_at", "2017-09-25 04:09:14.863689"], ["owner_role", "t"], ["appreciator_role", "f"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at", "owner_role", "appreciator_role") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "test2@test.com"], ["encrypted_password", "$2a$11$M/06N6/FAuKZ032ZxUaNOOb7pvXNNhwqnduun0BXq2GuftYA4w.4K"], ["created_at", "2017-09-25 04:09:14.989312"], ["updated_at", "2017-09-25 04:09:14.989312"], ["owner_role", "t"], ["appreciator_role", "f"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["email", "test3@test.com"], ["encrypted_password", "$2a$11$MMahUZ.ntGyP4ClwXu9ll.cUrRqfUiukDjcdWZM/dIld5nHOpfjFe"], ["created_at", "2017-09-25 04:09:15.126820"], ["updated_at", "2017-09-25 04:09:15.126820"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2471-1pcir7t.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2471-14qpqt1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2471-14qpqt1.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2471-14qpqt1.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/1063353d79c37c7411731c175120a99220170924-2471-cli6eq'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2471-14qpqt1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2471-14qpqt1.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2471-14qpqt1.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/1063353d79c37c7411731c175120a99220170924-2471-j1cadm'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2471-w7tp2c.jpg'
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "A true flower-child."], ["created_at", "2017-09-25 04:09:15.448140"], ["updated_at", "2017-09-25 04:09:15.448140"], ["image_file_name", "dog1.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 249026], ["image_updated_at", "2017-09-25 04:09:15.147043"], ["likes", 27], ["names", "Daisy"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2471-u1raqv.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2471-8bpzav.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2471-8bpzav.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2471-8bpzav.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/e365e05f4e4e47a21fc11ae17e27ec9e20170924-2471-odqx00'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2471-8bpzav.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2471-8bpzav.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2471-8bpzav.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/e365e05f4e4e47a21fc11ae17e27ec9e20170924-2471-1rdy3yq'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2471-uwjz7m.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "Spooo00oOO0Oky"], ["created_at", "2017-09-25 04:09:15.630990"], ["updated_at", "2017-09-25 04:09:15.630990"], ["image_file_name", "dog2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 195355], ["image_updated_at", "2017-09-25 04:09:15.462234"], ["likes", 13], ["names", "Ghost"]]
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2471-uzzgd5.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2471-1djs7sg.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2471-1djs7sg.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2471-1djs7sg.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6768cc9c34ce82ac4f10d9d6e139034320170924-2471-1jvhgoh'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2471-1djs7sg.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2471-1djs7sg.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2471-1djs7sg.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6768cc9c34ce82ac4f10d9d6e139034320170924-2471-hlyswb'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2471-vrsxg3.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I'm corgeous"], ["created_at", "2017-09-25 04:09:15.800586"], ["updated_at", "2017-09-25 04:09:15.800586"], ["image_file_name", "dog3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 53568], ["image_updated_at", "2017-09-25 04:09:15.649462"], ["likes", 20], ["names", "Butterscotch"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2471-1ugamlz.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2471-ovr8rv.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2471-ovr8rv.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2471-ovr8rv.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/06bd4b13c3068e9db446f14fc491470520170924-2471-1bydgp6'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2471-ovr8rv.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2471-ovr8rv.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2471-ovr8rv.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/06bd4b13c3068e9db446f14fc491470520170924-2471-wrr6am'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2471-13bbqgb.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I love long walks through the flowers"], ["created_at", "2017-09-25 04:09:15.963951"], ["updated_at", "2017-09-25 04:09:15.963951"], ["image_file_name", "dog4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 236526], ["image_updated_at", "2017-09-25 04:09:15.807726"], ["likes", 10], ["names", "Sally"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2471-1tzk7k1.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2471-1nld2th.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2471-1nld2th.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2471-1nld2th.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ac61a6681f62b00d9713fb5bad7e702120170924-2471-s268r0'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2471-1nld2th.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2471-1nld2th.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2471-1nld2th.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ac61a6681f62b00d9713fb5bad7e702120170924-2471-x162nn'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2471-lvdg25.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "This doesn't taste like a bone"], ["created_at", "2017-09-25 04:09:16.107288"], ["updated_at", "2017-09-25 04:09:16.107288"], ["image_file_name", "dog14.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 70180], ["image_updated_at", "2017-09-25 04:09:15.974587"], ["likes", 10], ["names", "Skipper"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2471-1gl8d3w.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2471-17iaw6u.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2471-17iaw6u.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2471-17iaw6u.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/c617119aca1ffe243b28a3c60b758e7f20170924-2471-tpbk1n'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2471-17iaw6u.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2471-17iaw6u.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2471-17iaw6u.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/c617119aca1ffe243b28a3c60b758e7f20170924-2471-nk35p9'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2471-fto6l2.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I'm the best boy"], ["created_at", "2017-09-25 04:09:16.196999"], ["updated_at", "2017-09-25 04:09:16.196999"], ["image_file_name", "dog19.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 7703], ["image_updated_at", "2017-09-25 04:09:16.114577"], ["likes", 10], ["names", "Briar"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20170909205733)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170909205733"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20170909230437)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170909230437"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAttachmentImageToPosts (20170910172656)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_file_name" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_content_type" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_updated_at" datetime[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170910172656"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRolesToUsers (20170918070835)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "owner_role" boolean DEFAULT 'f'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "appreciator_role" boolean DEFAULT 't'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170918070835"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRoleToUsers (20170918080234)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170918080234"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserIdToPosts (20170919224230)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "user_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170919224230"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddLikesToPosts (20170920012409)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "likes" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920012409"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNamesToPosts (20170920012957)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "posts" ADD "names" text[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920012957"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-25 04:10:19.130975"], ["updated_at", "2017-09-25 04:10:19.130975"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at", "owner_role", "appreciator_role") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$11$feHfj9JFqpNB6niHDuUoWeYJ7XHABnUQ9GBJ77RuR9TlPBB8mXzoG"], ["created_at", "2017-09-25 04:10:24.537349"], ["updated_at", "2017-09-25 04:10:24.537349"], ["owner_role", "t"], ["appreciator_role", "f"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at", "owner_role", "appreciator_role") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "test2@test.com"], ["encrypted_password", "$2a$11$kiKAkGWNfEks86fPhfxZuOIABL5z/fgUYL5IEP2AL0r9YtFMO1p1e"], ["created_at", "2017-09-25 04:10:24.670462"], ["updated_at", "2017-09-25 04:10:24.670462"], ["owner_role", "t"], ["appreciator_role", "f"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["email", "test3@test.com"], ["encrypted_password", "$2a$11$PfyV2INckYxKJqzWCXCs1e5JY.GcHpFaSbhDXbZX6o3WicFLLo7lW"], ["created_at", "2017-09-25 04:10:24.787785"], ["updated_at", "2017-09-25 04:10:24.787785"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2637-vm7quj.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2637-1bu5vli.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2637-1bu5vli.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2637-1bu5vli.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/74862ee3fce2c5a7420d995148d26d1d20170924-2637-18sre57'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2637-1bu5vli.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2637-1bu5vli.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2637-1bu5vli.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/74862ee3fce2c5a7420d995148d26d1d20170924-2637-xoxnum'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2637-sewllp.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "A true flower-child."], ["created_at", "2017-09-25 04:10:25.104106"], ["updated_at", "2017-09-25 04:10:25.104106"], ["image_file_name", "dog1.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 249026], ["image_updated_at", "2017-09-25 04:10:24.809794"], ["likes", 27], ["names", "Daisy"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2637-1dhzmjm.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2637-1yas2bj.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2637-1yas2bj.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2637-1yas2bj.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/f21070270189ef4d385a16ef8ff83fdd20170924-2637-14iyyal'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2637-1yas2bj.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2637-1yas2bj.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2637-1yas2bj.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/f21070270189ef4d385a16ef8ff83fdd20170924-2637-tcqy4j'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2637-1qcfvc8.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "Spooo00oOO0Oky"], ["created_at", "2017-09-25 04:10:25.279405"], ["updated_at", "2017-09-25 04:10:25.279405"], ["image_file_name", "dog2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 195355], ["image_updated_at", "2017-09-25 04:10:25.115712"], ["likes", 13], ["names", "Ghost"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2637-ax66id.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2637-1y3dzhm.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2637-1y3dzhm.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2637-1y3dzhm.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/a6183de5e5f861638743daec6f46dbf020170924-2637-12ygou2'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2637-1y3dzhm.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2637-1y3dzhm.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2637-1y3dzhm.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/a6183de5e5f861638743daec6f46dbf020170924-2637-17a9o43'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2637-g06xnn.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I'm corgeous"], ["created_at", "2017-09-25 04:10:25.456803"], ["updated_at", "2017-09-25 04:10:25.456803"], ["image_file_name", "dog3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 53568], ["image_updated_at", "2017-09-25 04:10:25.289075"], ["likes", 20], ["names", "Butterscotch"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2637-1ppd7hb.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2637-4diw79.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2637-4diw79.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2637-4diw79.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6bf5ba3866d43a234ad968b5856d8df420170924-2637-13sudpr'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2637-4diw79.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2637-4diw79.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2637-4diw79.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6bf5ba3866d43a234ad968b5856d8df420170924-2637-1uu7m9'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2637-1htxav0.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I love long walks through the flowers"], ["created_at", "2017-09-25 04:10:25.601229"], ["updated_at", "2017-09-25 04:10:25.601229"], ["image_file_name", "dog4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 236526], ["image_updated_at", "2017-09-25 04:10:25.463593"], ["likes", 10], ["names", "Sally"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2637-13fnl7z.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2637-889o08.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2637-889o08.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2637-889o08.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/44d427d7a1a85b54623414284a812d4820170924-2637-1piek2f'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2637-889o08.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2637-889o08.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2637-889o08.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/44d427d7a1a85b54623414284a812d4820170924-2637-g0tbvl'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2637-16tw59u.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "This doesn't taste like a bone"], ["created_at", "2017-09-25 04:10:25.784331"], ["updated_at", "2017-09-25 04:10:25.784331"], ["image_file_name", "dog14.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 70180], ["image_updated_at", "2017-09-25 04:10:25.612368"], ["likes", 10], ["names", "Skipper"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2637-15mxk0s.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2637-1gfkei0.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2637-1gfkei0.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2637-1gfkei0.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6fbcfb001f73d1724322569e3834e7e320170924-2637-128vdvu'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2637-1gfkei0.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2637-1gfkei0.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2637-1gfkei0.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6fbcfb001f73d1724322569e3834e7e320170924-2637-limol4'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2637-1c1nvrb.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I'm the best boy"], ["created_at", "2017-09-25 04:10:25.875406"], ["updated_at", "2017-09-25 04:10:25.875406"], ["image_file_name", "dog19.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 7703], ["image_updated_at", "2017-09-25 04:10:25.791043"], ["likes", 10], ["names", "Briar"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20170909205733)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170909205733"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20170909230437)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170909230437"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAttachmentImageToPosts (20170910172656)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_file_name" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_content_type" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_updated_at" datetime[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170910172656"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRolesToUsers (20170918070835)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "owner_role" boolean DEFAULT 'f'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "appreciator_role" boolean DEFAULT 't'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170918070835"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRoleToUsers (20170918080234)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170918080234"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserIdToPosts (20170919224230)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "user_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170919224230"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddLikesToPosts (20170920012409)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "likes" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920012409"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNamesToPosts (20170920012957)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "names" text[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920012957"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-25 04:11:45.761462"], ["updated_at", "2017-09-25 04:11:45.761462"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at", "owner_role", "appreciator_role") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$11$vof.EWe9fs1vRWvoJviqR.McE8.CObrzRqE8aFM/.vsbSfBiF97i6"], ["created_at", "2017-09-25 04:11:49.389495"], ["updated_at", "2017-09-25 04:11:49.389495"], ["owner_role", "t"], ["appreciator_role", "f"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at", "owner_role", "appreciator_role") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "test2@test.com"], ["encrypted_password", "$2a$11$bhXK4ZD/Uy8Cm96i4L915.GlpUTmuHL3Sdqml3mlGATwj7jeUGKYu"], ["created_at", "2017-09-25 04:11:49.516445"], ["updated_at", "2017-09-25 04:11:49.516445"], ["owner_role", "t"], ["appreciator_role", "f"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["email", "test3@test.com"], ["encrypted_password", "$2a$11$/whrC95FhcSA8hy4SDtBZuqJKu8/VOR0Y4yG0/.PDpybHg3CUFjxm"], ["created_at", "2017-09-25 04:11:49.644161"], ["updated_at", "2017-09-25 04:11:49.644161"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2799-1wtcuzu.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2799-1q0r5d.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2799-1q0r5d.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2799-1q0r5d.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/f2847ea179da43764d16f63123dc0b5c20170924-2799-15b775x'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2799-1q0r5d.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2799-1q0r5d.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2799-1q0r5d.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/f2847ea179da43764d16f63123dc0b5c20170924-2799-1r09ivj'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2799-1azz02m.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "A true flower-child."], ["created_at", "2017-09-25 04:11:49.936363"], ["updated_at", "2017-09-25 04:11:49.936363"], ["image_file_name", "dog1.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 249026], ["image_updated_at", "2017-09-25 04:11:49.659424"], ["user_id", 1], ["likes", 27], ["names", "Daisy"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2799-ebrta0.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2799-oa7l8b.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2799-oa7l8b.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2799-oa7l8b.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/c5be520eb667db53900cf3f6ee96f3b320170924-2799-1taekpa'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2799-oa7l8b.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2799-oa7l8b.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2799-oa7l8b.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/c5be520eb667db53900cf3f6ee96f3b320170924-2799-g99gke'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2799-1kn57bz.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "Spooo00oOO0Oky"], ["created_at", "2017-09-25 04:11:50.113407"], ["updated_at", "2017-09-25 04:11:50.113407"], ["image_file_name", "dog2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 195355], ["image_updated_at", "2017-09-25 04:11:49.949454"], ["user_id", 2], ["likes", 13], ["names", "Ghost"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2799-dphuik.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2799-101yrla.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2799-101yrla.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2799-101yrla.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/5e938ddea1c56a754831dad258d20e0120170924-2799-m9zb53'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2799-101yrla.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2799-101yrla.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2799-101yrla.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/5e938ddea1c56a754831dad258d20e0120170924-2799-priw8e'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2799-h7xbsr.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I'm corgeous"], ["created_at", "2017-09-25 04:11:50.270494"], ["updated_at", "2017-09-25 04:11:50.270494"], ["image_file_name", "dog3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 53568], ["image_updated_at", "2017-09-25 04:11:50.121266"], ["user_id", 1], ["likes", 20], ["names", "Butterscotch"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2799-1bh8ucg.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2799-cfkfx7.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2799-cfkfx7.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2799-cfkfx7.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/c85d320d7c0372cb1b531b33b2fafe2320170924-2799-1pvt6zd'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2799-cfkfx7.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2799-cfkfx7.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2799-cfkfx7.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/c85d320d7c0372cb1b531b33b2fafe2320170924-2799-1lvozcq'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2799-1wvnljy.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I love long walks through the flowers"], ["created_at", "2017-09-25 04:11:50.441254"], ["updated_at", "2017-09-25 04:11:50.441254"], ["image_file_name", "dog4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 236526], ["image_updated_at", "2017-09-25 04:11:50.285108"], ["likes", 10], ["names", "Sally"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2799-1ma33pn.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2799-w23gci.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2799-w23gci.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2799-w23gci.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6d05b7380c6772af41fc4d784db9130c20170924-2799-1b1vlc7'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2799-w23gci.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2799-w23gci.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2799-w23gci.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6d05b7380c6772af41fc4d784db9130c20170924-2799-86etks'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2799-i3pqei.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "This doesn't taste like a bone"], ["created_at", "2017-09-25 04:11:50.627427"], ["updated_at", "2017-09-25 04:11:50.627427"], ["image_file_name", "dog14.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 70180], ["image_updated_at", "2017-09-25 04:11:50.452724"], ["likes", 10], ["names", "Skipper"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2799-127t6c3.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2799-1fvvrmg.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2799-1fvvrmg.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2799-1fvvrmg.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/138262d4d6d6fdda7a3e606c096b3ade20170924-2799-1dl0n7n'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2799-1fvvrmg.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2799-1fvvrmg.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2799-1fvvrmg.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/138262d4d6d6fdda7a3e606c096b3ade20170924-2799-5cmatq'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2799-151xaep.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I'm the best boy"], ["created_at", "2017-09-25 04:11:50.734416"], ["updated_at", "2017-09-25 04:11:50.734416"], ["image_file_name", "dog19.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 7703], ["image_updated_at", "2017-09-25 04:11:50.636595"], ["likes", 10], ["names", "Briar"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20170909205733)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170909205733"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePosts (20170909230437)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170909230437"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAttachmentImageToPosts (20170910172656)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_file_name" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_content_type" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "posts" ADD "image_updated_at" datetime[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170910172656"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRolesToUsers (20170918070835)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "owner_role" boolean DEFAULT 'f'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "appreciator_role" boolean DEFAULT 't'[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170918070835"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRoleToUsers (20170918080234)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170918080234"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserIdToPosts (20170919224230)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "user_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170919224230"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddLikesToPosts (20170920012409)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" ADD "likes" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920012409"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNamesToPosts (20170920012957)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "names" text[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920012957"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-25 04:13:58.319482"], ["updated_at", "2017-09-25 04:13:58.319482"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at", "owner_role", "appreciator_role") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["email", "test@test.com"], ["encrypted_password", "$2a$11$zAZTYKTgEqkMmngnO0PqtOtHGnBnifJtf1ftVUZWGzJP6qk7u/C7K"], ["created_at", "2017-09-25 04:14:02.090286"], ["updated_at", "2017-09-25 04:14:02.090286"], ["owner_role", "t"], ["appreciator_role", "f"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at", "owner_role", "appreciator_role") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["email", "test2@test.com"], ["encrypted_password", "$2a$11$BCK149txCHvzonAUWhVkFeizTFIlLe7PO9e.Y8z1VvY4RCRIzyQx6"], ["created_at", "2017-09-25 04:14:02.228490"], ["updated_at", "2017-09-25 04:14:02.228490"], ["owner_role", "t"], ["appreciator_role", "f"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["id", 3], ["email", "test3@test.com"], ["encrypted_password", "$2a$11$JUVH9vvgoyVBZna6CLUhS.cEPliPu47V9tVV97Amg1hZAZz.kAnwG"], ["created_at", "2017-09-25 04:14:02.349956"], ["updated_at", "2017-09-25 04:14:02.349956"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2955-1aumk8y.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2955-14i7llx.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2955-14i7llx.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2955-14i7llx.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/1de73f843f118c2f74a5ad332ddd81a720170924-2955-8rbnfh'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2955-14i7llx.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2955-14i7llx.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2955-14i7llx.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/1de73f843f118c2f74a5ad332ddd81a720170924-2955-1bnr1hs'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/6be237a000de33e2076acc5c25c3661720170924-2955-1apy39i.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "A true flower-child."], ["created_at", "2017-09-25 04:14:02.663650"], ["updated_at", "2017-09-25 04:14:02.663650"], ["image_file_name", "dog1.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 249026], ["image_updated_at", "2017-09-25 04:14:02.369240"], ["user_id", 1], ["likes", 27], ["names", "Daisy"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2955-k381jg.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2955-1xzmxiz.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2955-1xzmxiz.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2955-1xzmxiz.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab021e63987b7f5847cd13d20e49551a20170924-2955-oeazls'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2955-1xzmxiz.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2955-1xzmxiz.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2955-1xzmxiz.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab021e63987b7f5847cd13d20e49551a20170924-2955-tmkkxq'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/58211f8d1bb9ed49ad46f756512d715f20170924-2955-1biauvu.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "Spooo00oOO0Oky"], ["created_at", "2017-09-25 04:14:02.835464"], ["updated_at", "2017-09-25 04:14:02.835464"], ["image_file_name", "dog2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 195355], ["image_updated_at", "2017-09-25 04:14:02.674355"], ["user_id", 2], ["likes", 13], ["names", "Ghost"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2955-vzhhli.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2955-teuhs2.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2955-teuhs2.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2955-teuhs2.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/3a16cb94a669c311cd836f019f14645220170924-2955-b0ahkt'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2955-teuhs2.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2955-teuhs2.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2955-teuhs2.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/3a16cb94a669c311cd836f019f14645220170924-2955-1sl0zg'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/09a8e23f6da687ba7cce5fd962d1290f20170924-2955-cuwdw4.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I'm corgeous"], ["created_at", "2017-09-25 04:14:02.982973"], ["updated_at", "2017-09-25 04:14:02.982973"], ["image_file_name", "dog3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 53568], ["image_updated_at", "2017-09-25 04:14:02.840884"], ["user_id", 1], ["likes", 20], ["names", "Butterscotch"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2955-n5800b.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2955-34o4pt.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2955-34o4pt.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2955-34o4pt.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/3a03b70f20c75f62f302c78dd229cdf820170924-2955-1q7mjl5'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2955-34o4pt.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2955-34o4pt.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2955-34o4pt.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/3a03b70f20c75f62f302c78dd229cdf820170924-2955-170mlu8'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/4bfe68a5734554256bdc1516b256507520170924-2955-1cf035t.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I love long walks through the flowers"], ["created_at", "2017-09-25 04:14:03.139915"], ["updated_at", "2017-09-25 04:14:03.139915"], ["image_file_name", "dog4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 236526], ["image_updated_at", "2017-09-25 04:14:02.992466"], ["user_id", 1], ["likes", 10], ["names", "Sally"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2955-1lr9e87.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2955-1aqmo0q.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2955-1aqmo0q.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2955-1aqmo0q.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/c7f5e9e04250de56048d293532b6321820170924-2955-1f4oof2'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2955-1aqmo0q.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2955-1aqmo0q.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2955-1aqmo0q.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/c7f5e9e04250de56048d293532b6321820170924-2955-1xoktdf'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/ab10be9515f40e6d0f50d9529d7108be20170924-2955-11gw4j.jpg'
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "This doesn't taste like a bone"], ["created_at", "2017-09-25 04:14:03.289990"], ["updated_at", "2017-09-25 04:14:03.289990"], ["image_file_name", "dog14.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 70180], ["image_updated_at", "2017-09-25 04:14:03.147114"], ["user_id", 2], ["likes", 10], ["names", "Skipper"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2955-1c9hfzc.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2955-13z9isk.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2955-13z9isk.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2955-13z9isk.jpg[0]' -auto-orient -resize "500x500>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/51e43fd53a262bf6e1edfcb98ad2f80f20170924-2955-1irdn7v'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2955-13z9isk.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2955-13z9isk.jpg[0]'
+Command :: convert '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2955-13z9isk.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/51e43fd53a262bf6e1edfcb98ad2f80f20170924-2955-1s0m47u'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Command :: file -b --mime '/var/folders/hz/bbjgz0w96255mx0sv8xz8j4m0000gn/T/aacd0c1a9dc2d648b12f1fc316ebbe8420170924-2955-1k6oyo4.jpg'
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("description", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "user_id", "likes", "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["description", "I'm the best boy"], ["created_at", "2017-09-25 04:14:03.388239"], ["updated_at", "2017-09-25 04:14:03.388239"], ["image_file_name", "dog19.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 7703], ["image_updated_at", "2017-09-25 04:14:03.298261"], ["user_id", 1], ["likes", 10], ["names", "Briar"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
