@@ -39,7 +39,7 @@ Our biggest issue by and large was setting up user roles. Devise did not seem to
 We also initially had confusion with the controller-model-view architecture as it applied to Rails, but we began to sail much more smoothly the more we understood this.
 </br>
 ### References
-[Montana's original Instagram Repo](https://github.com/MontanaRoberts/MontanaRoberts-Instagram)
-[Paperclip](https://github.com/thoughtbot/paperclip)
-[CanCanCan](https://github.com/CanCanCommunity/cancancan)
-[Devise](https://github.com/plataformatec/devise) 
+[Montana's original Instagram Repo](https://github.com/MontanaRoberts/MontanaRoberts-Instagram)<br/>
+[Paperclip](https://github.com/thoughtbot/paperclip)<br/>
+[CanCanCan](https://github.com/CanCanCommunity/cancancan)<br/>
+[Devise](https://github.com/plataformatec/devise)<br/>
