@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/end_page' => 'posts#end_page', as: :end_page
+
   root 'posts#index'
 
   resources :posts

@@ -1,0 +1,5 @@
+doggydm/tmp
+doggydm/tmp/*
+doggydm/public
+doggydm/public/*
+**/.DS_STORE
