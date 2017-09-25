@@ -1,11 +1,15 @@
 <div class="white">
+    <div class="info-container">
+        <div class="name">
+          <%= @post.names %>
+        </div>
+        <br>
+        <p><%= @post.description %></p>
+        <span><%= @post.likes %> upborks</span>
+    </div>
     <%= image_tag(@post.image.url(:medium)) %>
-    <br>
-    <%= @post.names %>
-    <%= @post.description %>
-    <%= @post.likes %>
     <%= link_to("GOOD DOG", @post.next ? @post.next : end_page_path, :class => "good_dog") %>
-     <%= link_to 'GREAT DOG', @post, method: :patch, :class => "great_dog" %>
+    <%= link_to 'GREAT DOG', @post, method: :patch, :class => "great_dog" %>
     <% if can? :destroy, @post %>
         <li>
            <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
