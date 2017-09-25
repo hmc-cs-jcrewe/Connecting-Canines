@@ -3,17 +3,16 @@
         <div class="name">
           <%= @post.names %>
         </div>
-        <br>
         <p><%= @post.description %></p>
-        <span><%= @post.likes %> upborks</span>
+        <span class="likes"><%= @post.likes %> upborks</span>
+        <%= link_to("GOOD DOG", @post.next ? @post.next : end_page_path, :class => "good_dog") %>
+        <%= link_to('GREAT DOG', @post, method: :patch, :class => "great_dog") %>
       </div>
-      <%= image_tag @post.image.url(:medium) %>
-      <%= link_to("GOOD DOG", @post.next ? @post.next : end_page_path, :class => "good_dog") %>
-      <%= link_to('GREAT DOG', @post, method: :patch, :class => "great_dog") %>
+      <%= image_tag(@post.image.url(:medium), :class => "image") %>
       <% if can? :destroy, @post %>
-        <li>
-           <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </li>
+        <p>
+           <%= link_to('Delete?', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete") %>
+        </p>
       <% end %>
    </div>
 
